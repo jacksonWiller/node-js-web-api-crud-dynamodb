@@ -1,20 +1,43 @@
+import { PutCommand, ScanCommand, GetCommand } from "@aws-sdk/lib-dynamodb";
+import docClient from "../config/dynamodb";
+
 class ProductRepository {
   constructor() {
     this.products = [];
   }
 
-  create(product) {
-    product.id = this.products.length + 1;
-    this.products.push(product);
+  async create(product) {
+    const command = new PutCommand({
+      TableName: this.tableName,
+      Item: {
+        id: Date.now().toString(),
+        name: product.name,
+        price: product.price,
+        createdAt: new Date().toISOString(),
+      },
+    });
+
+    await docClient.send(command);
     return product;
   }
 
-  findAll() {
-    return this.products;
+  async findAll() {
+    const command = new ScanCommand({
+      TableName: this.tableName,
+    });
+
+    const response = await docClient.send(command);
+    return response.Items;
   }
 
-  findById(id) {
-    return this.products.find((product) => product.id === id);
+  async findById(id) {
+    const command = new GetCommand({
+      TableName: this.tableName,
+      Key: { id: id.toString() },
+    });
+
+    const response = await docClient.send(command);
+    return response.Item;
   }
 }
 
