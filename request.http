@@ -1,0 +1,17 @@
+### Criar novo produto
+POST http://localhost:3000/api/products
+Content-Type: application/json
+
+{
+    "name": "Smartphone ZEB",
+    "price": 4999.99,
+    "description": "Smartphone última geração 2"
+}
+
+### Listar todos os produtos
+GET http://localhost:3000/api/products
+Content-Type: application/json
+
+### Buscar produto por ID
+GET http://localhost:3000/api/products/1
+Content-Type: application/json
