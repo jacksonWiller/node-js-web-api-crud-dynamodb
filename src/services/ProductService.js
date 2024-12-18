@@ -1,5 +1,5 @@
 const Product = require("../models/Product");
-const productRepository = require("../repositories/ProductRepository").default;
+const productRepository = require("../repositories/ProductRepository");
 
 class ProductService {
   createProduct(productData) {

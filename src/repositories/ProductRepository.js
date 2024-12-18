@@ -1,5 +1,9 @@
-import { PutCommand, ScanCommand, GetCommand } from "@aws-sdk/lib-dynamodb";
-import docClient from "../config/dynamodb";
+const {
+  PutCommand,
+  ScanCommand,
+  GetCommand,
+} = require("@aws-sdk/lib-dynamodb");
+const docClient = require("../config/dynamodb");
 
 class ProductRepository {
   constructor() {

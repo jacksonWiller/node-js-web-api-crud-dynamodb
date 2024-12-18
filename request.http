@@ -1,5 +1,5 @@
 ### Criar novo produto
-POST http://localhost:3000/api/products
+POST http://localhost:4000/api/products
 Content-Type: application/json
 
 {
@@ -9,9 +9,9 @@ Content-Type: application/json
 }
 
 ### Listar todos os produtos
-GET http://localhost:3000/api/products
+GET http://localhost:4000/api/products
 Content-Type: application/json
 
 ### Buscar produto por ID
-GET http://localhost:3000/api/products/1
+GET http://localhost:4000/api/products/1
 Content-Type: application/json

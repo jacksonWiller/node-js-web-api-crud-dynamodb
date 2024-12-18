@@ -1,8 +1,8 @@
 import globals from "globals";
 import pluginJs from "@eslint/js";
 
-/** @type {import('eslint').Linter.Config[]} */
-export default [
+/** @type {require('eslint').Linter.Config[]} */
+module.exports = [
   {
     files: ["**/*.{js,mjs,cjs}"],
     languageOptions: {
